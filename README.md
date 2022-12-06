@@ -10,14 +10,34 @@
 
 ## Background
 
-Airbnb has certainly made an impact on today's hospitality industry. In 2022, Airbnb has recorded 6 million listings in over 100,000 cities world wide, which has left many people wondering, "should I get in on the action?"
+Natural disasters require immediate action to attend victims in need; the issue being that first-responder teams are fluded with communications and typically do not have the necessary resources to cover all requests. This project was motivated to create a tool to:
+1. Identify messages that require a first-responder team dispatch
+2. Classify input messages into specific disaster categories
 
 ## Installation
   The libraries used in this project are all native to Anaconda enviroment. The following libraries were used for the project:
 ```bash
-  import pandas as pd
-  import numpy as np
-  import matplotlib.pyplot as plt
+# libraries for data
+import pandas as pd
+from sqlalchemy import create_engine
+  
+# libraries for NLP
+import re
+import nltk
+from nltk.corpus import stopwords
+from nltk.stem.wordnet import WordNetLemmatizer
+from nltk.tokenize import word_tokenize
+from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
+
+# libraries for Modeling
+from sklearn.pipeline import Pipeline
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.multioutput import MultiOutputClassifier
+from sklearn.model_selection import GridSearchCV
+
+# library for scoring
+from sklearn.metrics import classification_report
 ```
 
 ## Instructions
@@ -30,18 +50,13 @@ Airbnb has certainly made an impact on today's hospitality industry. In 2022, Ai
 
 2. Go to `app` directory: `cd app`
 
-3. Run your web app: `python run.py`
+3. Run web app: `python run.py`
 
 4. Click the `PREVIEW` button to open the homepage
 
 ## Files
- 
-  The file used in this analysis was retrieved from Kaggle - https://www.kaggle.com/datasets/airbnb/boston.
-  The 'listings.csv' data set consists of 2016 Airbnb listings in the Boston Area. There were a total of 3585 unique obersvations and 95 variables.
-  
-## Summary of Results
-1. I observed that there was **no clear relationship** between **price per nights and utilization rate** in the Boston Airbnb listings within the data set 
-2. I determined the neighborhoods with the **highest potential revenue** by combining **prices per night * 365 * utilization rates**
-3. Finally, I determined the neighborhoods with the **quickest returns on investment** given their yearly revenue potential and the median house prices per neighborhood
+There are 2 files used in the project:
+1. 'disaster_messages.csv' - comprised of messages used to train the model
+2. 'disaster_categories.csv' - comprised of the disaster categories used to label the messages and used as the target variables.
 
 
