@@ -70,6 +70,6 @@ There are 2 files used in the project:
 The data in the 'disaster_messages' file has its imbalances, as seen in the graph on the web app. These imbalances affect the training model for those specific categories since the model does not have sufficient labels to learn from the data.
 
 ## Consideration
-When running the model, it is important to consider which score to maximize. **Precision** should be maximized if the cost for dispatching first-responder team is high for the decision-maker. **Recall** should be maximized if the cost of not helping to someone in need is high for the decision-maker.
+When running the model, it is important to consider which score to maximize. **Precision** should be maximized if the cost for dispatching a first-responder team is high for the decision-maker. **Recall** should be maximized if the cost of not getting help to someone in need is high for the decision-maker.
 
 
